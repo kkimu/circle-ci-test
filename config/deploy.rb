@@ -12,8 +12,13 @@ set :pty, true
 desc "deploy tech.qwtt.jp"
 task :deploy do
   on roles(:web) do
-    execute "sudo sh setup.sh"
-  end
+		application = fetch :application
+		if test "[ -d #{application} ]"
+	    execute "cd #{application}; git pull"
+	  else
+	    execute "git clone #{fetch :repo_url} #{application}"
+	  end
+	end
 end
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
