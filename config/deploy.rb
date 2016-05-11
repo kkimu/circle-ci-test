@@ -5,10 +5,25 @@ set :application, 'airmeet'
 set :scm, :git
 set :repo_url, 'git@github.com:kkimu/circle-ci-test'
 set :deploy_to, "/go/airmeet/"
-set :branch, ENV["BRANCH_NAME"] || "deploy"
+set :branch, "deploy"
+set :pty, true
 
 
+desc "deploy tech.qwtt.jp"
+task :deploy do
+  on roles(:web) do
+    application = fetch :application
+    deploy_to = fetch :deploy_to
 
+    execute "sudo chown deploy:deploy #{deploy_to}"
+
+    if test "[ -d #{deploy_to}/#{application} ]"
+      execute "cd #{deploy_to}/#{application}; git pull; sudo sh setup.sh"
+    else
+      execute "cd #{deploy_to}; git clone #{fetch :repo_url} #{application}; cd #{application}; sudo sh setup.sh"
+    end
+  end
+end
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 

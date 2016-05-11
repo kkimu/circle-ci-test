@@ -1,3 +1,11 @@
+data-mysql:
+  image: busybox
+  volumes:
+    - var/lib/mysql
+myapp-gopath:
+  image: busybox
+  volumes:
+    - /go
 # nginx
 nginx:
   image: jwilder/nginx-proxy
@@ -9,8 +17,8 @@ nginx:
 mysql:
   image: mysql
   volumes:
-    - "./mysql/conf.d:/etc/mysql/conf.d"
-    - "./mysql/init.d:/docker-entrypoint-initdb.d"
+    - ./mysql/conf.d:/etc/mysql/conf.d
+    - ./mysql/init.d:/docker-entrypoint-initdb.d
   volumes_from:
     - data-mysql
   ports:
