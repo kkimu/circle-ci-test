@@ -1,0 +1,33 @@
+# nginx
+nginx:
+  image: jwilder/nginx-proxy
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+  ports:
+    - "80:80"
+# mysql
+mysql:
+  image: mysql
+  volumes:
+    - "./mysql/conf.d:/etc/mysql/conf.d"
+    - "./mysql/init.d:/docker-entrypoint-initdb.d"
+  volumes_from:
+    - data-mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: mysql
+    MYSQL_DATABASE: airmeet
+# airmeet
+airmeet:
+  build: airmeet
+  links:
+    - mysql
+  volumes:
+    - "./airmeet:/go/src/app"
+  volumes_from:
+    - myapp-gopath
+  environment:
+    VIRTUAL_HOST: "${LOCAL_VIRTUAL_HOST}"
+    DB_PASS: "${DB_PASS}"
+  command: go run main.go api.go db.go errors.go structs.go

@@ -1,0 +1,28 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  services:
+    - docker
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+#dependencies:
+#  cache_directories:
+#    - "~/cache"
+#  pre:
+#    - cp ./.docker/ssh-config.circleci ~/.ssh/config
+#    - ./script/docker-build.sh
+#    - docker run -d --privileged -p 40122:22 docker/centos-sshd; sleep 2
+test:
+  pre:
+    - echo "-----start test-----"
+  override:
+    - ./dummy_test_script.sh
+  post:
+    - echo "-----end test-----"
+deployment:
+  production: #これはただのラベルで何でもよい
+    branch: deploy #ここでブランチを指定。
+    commands:
+      - deployment-to-production.sh #new file
