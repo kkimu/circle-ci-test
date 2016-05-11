@@ -14,9 +14,9 @@ task :deploy do
   on roles(:web) do
 		application = fetch :application
 		if test "[ -d #{application} ]"
-	    execute "cd #{application}; git pull"
+	    execute "cd #{application}; git pull: sudo ./setup.sh"
 	  else
-	    execute "git clone #{fetch :repo_url} #{application}"
+	    execute "git clone #{fetch :repo_url} #{application}; sudo ./setup.sh"
 	  end
 	end
 end

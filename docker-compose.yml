@@ -1,11 +1,3 @@
-data-mysql:
-  image: busybox
-  volumes:
-    - var/lib/mysql
-myapp-gopath:
-  image: busybox
-  volumes:
-    - /go
 # nginx
 nginx:
   image: jwilder/nginx-proxy

@@ -911,3 +911,181 @@ Resolving deltas:   0% (0/85)
  DEBUG [0e6676e8] 	Resolving deltas:   2% (2/85)   Resolving deltas:   3% (3/85)   Resolving deltas:   5% (5/85)   Resolving deltas:   7% (6/85)   Resolving deltas:  11% (10/85)   Resolving deltas:  12% (11/85)   Resolving deltas:  14% (12/85)   Resolving deltas:  15% (13/85)   Resolving deltas:  16% (14/85)   Resolving deltas:  18% (16/85)   Resolving deltas:  21% (18/85)   Resolving deltas:  22% (19/85)   Resolving deltas:  23% (20/85)   Resolving deltas:  25% (22/85)   Resolving deltas:  27% (23/85)   Resolving deltas:  30% (26/85)   Resolving deltas:  32% (28/85)   Resolving deltas:  34% (29/85)   Resolving deltas:  36% (31/85)   Resolving deltas:  38% (33/85)   Resolving deltas:  40% (34/85)   Resolving deltas:  41% (35/85)   Resolving deltas:  42% (36/85)   Resolving deltas:  43% (37/85)   Resolving deltas:  47% (40/85)   Resolving deltas:  49% (42/85)   Resolving deltas:  50% (43/85)   Resolving deltas:  51% (44/85)   Resolving deltas:  52% (45/85)   Resolving deltas:  54% (46/85)   Resolving deltas:  55% (47/85)   Resolving deltas:  56% (48/85)   Resolving deltas:  57% (49/85)   Resolving deltas:  58% (50/85)   Resolving deltas:  60% (51/85)   Resolving deltas:  61% (52/85)   Resolving deltas:  62% (53/85)   Resolving deltas:  63% (54/85)   Resolving deltas:  67% (57/85)   Resolving deltas:  75% (64/85)   
  DEBUG [0e6676e8] 	Resolving deltas:  76% (65/85)   Resolving deltas:  77% (66/85)   Resolving deltas:  81% (69/85)   Resolving deltas:  87% (74/85)   Resolving deltas:  88% (75/85)   Resolving deltas:  90% (77/85)   Resolving deltas:  91% (78/85)   Resolving deltas:  94% (80/85)   Resolving deltas:  97% (83/85)   Resolving deltas: 100% (85/85)   Resolving deltas: 100% (85/85), done.
   INFO [0e6676e8] Finished in 4.593 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-12 06:16:32 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [cd0ea18b] Running /usr/bin/env mkdir -p /tmp/airmeet/ as deploy@133.130.96.129
+ DEBUG [cd0ea18b] Command: /usr/bin/env mkdir -p /tmp/airmeet/
+  INFO [cd0ea18b] Finished in 0.256 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/airmeet/git-ssh.sh 0.0%
+  INFO Uploading /tmp/airmeet/git-ssh.sh 100.0%
+  INFO [0bb7e706] Running /usr/bin/env chmod +rx /tmp/airmeet/git-ssh.sh as deploy@133.130.96.129
+ DEBUG [0bb7e706] Command: /usr/bin/env chmod +rx /tmp/airmeet/git-ssh.sh
+  INFO [0bb7e706] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [5240f76b] Running /usr/bin/env git ls-remote --heads git@github.com:kkimu/circle-ci-test as deploy@133.130.96.129
+ DEBUG [5240f76b] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env git ls-remote --heads git@github.com:kkimu/circle-ci-test )
+ DEBUG [5240f76b] 	ed09d3944340af813dd584c2ce06cd399a234da8	refs/heads/deploy
+59fa06571dcb05689a62d1943cb92493fb723919	refs/heads/master
+  INFO [5240f76b] Finished in 2.499 seconds with exit status 0 (successful).
+  INFO [98303eca] Running /usr/bin/env mkdir -p /go/airmeet/shared /go/airmeet/releases as deploy@133.130.96.129
+ DEBUG [98303eca] Command: /usr/bin/env mkdir -p /go/airmeet/shared /go/airmeet/releases
+  INFO [98303eca] Finished in 0.045 seconds with exit status 0 (successful).
+ DEBUG [f1eaf47a] Running [ -f /go/airmeet/current/REVISION ] as deploy@133.130.96.129
+ DEBUG [f1eaf47a] Command: [ -f /go/airmeet/current/REVISION ]
+ DEBUG [f1eaf47a] Finished in 0.042 seconds with exit status 0 (successful).
+ DEBUG [25629b35] Running /usr/bin/env cat /go/airmeet/current/REVISION 2>/dev/null as deploy@133.130.96.129
+ DEBUG [25629b35] Command: /usr/bin/env cat /go/airmeet/current/REVISION 2>/dev/null
+ DEBUG [25629b35] 	22c28d7da0f165a850fa1b6a9f9f89334c7c9883
+ DEBUG [25629b35] Finished in 0.046 seconds with exit status 0 (successful).
+ DEBUG [915b7753] Running [ -f /go/airmeet/repo/HEAD ] as deploy@133.130.96.129
+ DEBUG [915b7753] Command: [ -f /go/airmeet/repo/HEAD ]
+ DEBUG [915b7753] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /go/airmeet/repo
+ DEBUG [bc2649d7] Running if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [bc2649d7] Command: if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi
+ DEBUG [bc2649d7] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [5df86b4c] Running /usr/bin/env git remote update --prune as deploy@133.130.96.129
+ DEBUG [5df86b4c] Command: cd /go/airmeet/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [5df86b4c] 	Fetching origin
+ DEBUG [5df86b4c] 	remote: Counting objects: 7, done.[K
+remote: Compressing objects:  50% (1/2)   [Kremote: Compressing objects: 100% (2/2)   [Kremote: Compressing objects: 100% (2/2), done.[K
+ DEBUG [5df86b4c] 	remote: Total 7 (delta 4), reused 7 (delta 4), pack-reused 0[K
+ DEBUG [5df86b4c] 	Unpacking objects:  14% (1/7)   Unpacking objects:  28% (2/7)   Unpacking objects:  42% (3/7)   Unpacking objects:  57% (4/7)   Unpacking objects:  71% (5/7)   Unpacking objects:  85% (6/7)   Unpacking objects: 100% (7/7)   Unpacking objects: 100% (7/7), done.
+ DEBUG [5df86b4c] 	From github.com:kkimu/circle-ci-test
+   22c28d7..ed09d39  deploy     -> deploy
+  INFO [5df86b4c] Finished in 2.724 seconds with exit status 0 (successful).
+ DEBUG [8bdb4d91] Running if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [8bdb4d91] Command: if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi
+ DEBUG [8bdb4d91] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [106bb748] Running /usr/bin/env mkdir -p /go/airmeet/releases/20160511211635 as deploy@133.130.96.129
+ DEBUG [106bb748] Command: cd /go/airmeet/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env mkdir -p /go/airmeet/releases/20160511211635 )
+  INFO [106bb748] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [243abf22] Running /usr/bin/env git archive deploy | tar -x -f - -C /go/airmeet/releases/20160511211635 as deploy@133.130.96.129
+ DEBUG [243abf22] Command: cd /go/airmeet/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env git archive deploy | tar -x -f - -C /go/airmeet/releases/20160511211635 )
+  INFO [243abf22] Finished in 0.133 seconds with exit status 0 (successful).
+ DEBUG [15845afc] Running if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [15845afc] Command: if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi
+ DEBUG [15845afc] Finished in 0.040 seconds with exit status 0 (successful).
+ DEBUG [9f933427] Running /usr/bin/env git rev-list --max-count=1 deploy as deploy@133.130.96.129
+ DEBUG [9f933427] Command: cd /go/airmeet/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env git rev-list --max-count=1 deploy )
+ DEBUG [9f933427] 	ed09d3944340af813dd584c2ce06cd399a234da8
+ DEBUG [9f933427] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [2aec63aa] Running if test ! -d /go/airmeet/releases/20160511211635; then echo "Directory does not exist '/go/airmeet/releases/20160511211635'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [2aec63aa] Command: if test ! -d /go/airmeet/releases/20160511211635; then echo "Directory does not exist '/go/airmeet/releases/20160511211635'" 1>&2; false; fi
+ DEBUG [2aec63aa] Finished in 0.040 seconds with exit status 0 (successful).
+  INFO [200dc0d6] Running /usr/bin/env echo "ed09d3944340af813dd584c2ce06cd399a234da8" >> REVISION as deploy@133.130.96.129
+ DEBUG [200dc0d6] Command: cd /go/airmeet/releases/20160511211635 && /usr/bin/env echo "ed09d3944340af813dd584c2ce06cd399a234da8" >> REVISION
+  INFO [200dc0d6] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [744f6500] Running /usr/bin/env ln -s /go/airmeet/releases/20160511211635 /go/airmeet/releases/current as deploy@133.130.96.129
+ DEBUG [744f6500] Command: /usr/bin/env ln -s /go/airmeet/releases/20160511211635 /go/airmeet/releases/current
+  INFO [744f6500] Finished in 0.044 seconds with exit status 0 (successful).
+  INFO [229aea03] Running /usr/bin/env mv /go/airmeet/releases/current /go/airmeet as deploy@133.130.96.129
+ DEBUG [229aea03] Command: /usr/bin/env mv /go/airmeet/releases/current /go/airmeet
+  INFO [229aea03] Finished in 0.042 seconds with exit status 0 (successful).
+ DEBUG [d9c33e80] Running /usr/bin/env ls -xtr /go/airmeet/releases as deploy@133.130.96.129
+ DEBUG [d9c33e80] Command: /usr/bin/env ls -xtr /go/airmeet/releases
+ DEBUG [d9c33e80] 	20160511211447	20160511211635
+ DEBUG [d9c33e80] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [ed89f244] Running if test ! -d /go/airmeet/releases; then echo "Directory does not exist '/go/airmeet/releases'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [ed89f244] Command: if test ! -d /go/airmeet/releases; then echo "Directory does not exist '/go/airmeet/releases'" 1>&2; false; fi
+ DEBUG [ed89f244] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [6da4b02c] Running /usr/bin/env echo "Branch deploy (at ed09d3944340af813dd584c2ce06cd399a234da8) deployed as release 20160511211635 by kimura" >> /go/airmeet/revisions.log as deploy@133.130.96.129
+ DEBUG [6da4b02c] Command: cd /go/airmeet/releases && /usr/bin/env echo "Branch deploy (at ed09d3944340af813dd584c2ce06cd399a234da8) deployed as release 20160511211635 by kimura" >> /go/airmeet/revisions.log
+  INFO [6da4b02c] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [12561f40] Running [ -d airmeet ] as deploy@133.130.96.129
+ DEBUG [12561f40] Command: [ -d airmeet ]
+ DEBUG [12561f40] Finished in 0.040 seconds with exit status 0 (successful).
+  INFO [4650e739] Running cd airmeet; git pull as deploy@133.130.96.129
+ DEBUG [4650e739] Command: cd airmeet; git pull
+ DEBUG [4650e739] 	remote: Counting objects: 7, done.[K
+remote: Compressing objects:  50% (1/2)   [Kremote: Compressing objects: 100% (2/2)   [Kremote: Compressing objects: 100% (2/2), done.[K
+ DEBUG [4650e739] 	remote: Total 7 (delta 4), reused 7 (delta 4), pack-reused 0[K
+ DEBUG [4650e739] 	Unpacking objects:  14% (1/7)   Unpacking objects:  28% (2/7)   Unpacking objects:  42% (3/7)   Unpacking objects:  57% (4/7)   Unpacking objects:  71% (5/7)   Unpacking objects:  85% (6/7)   Unpacking objects: 100% (7/7)   Unpacking objects: 100% (7/7), done.
+ DEBUG [4650e739] 	From github.com:kkimu/circle-ci-test
+   22c28d7..ed09d39  deploy     -> origin/deploy
+ DEBUG [4650e739] 	Already up-to-date.
+  INFO [4650e739] Finished in 2.860 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-05-12 06:17:29 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [6e7920aa] Running /usr/bin/env mkdir -p /tmp/airmeet/ as deploy@133.130.96.129
+ DEBUG [6e7920aa] Command: /usr/bin/env mkdir -p /tmp/airmeet/
+  INFO [6e7920aa] Finished in 0.251 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/airmeet/git-ssh.sh 0.0%
+  INFO Uploading /tmp/airmeet/git-ssh.sh 100.0%
+  INFO [2df2626a] Running /usr/bin/env chmod +rx /tmp/airmeet/git-ssh.sh as deploy@133.130.96.129
+ DEBUG [2df2626a] Command: /usr/bin/env chmod +rx /tmp/airmeet/git-ssh.sh
+  INFO [2df2626a] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [51e34f94] Running /usr/bin/env git ls-remote --heads git@github.com:kkimu/circle-ci-test as deploy@133.130.96.129
+ DEBUG [51e34f94] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env git ls-remote --heads git@github.com:kkimu/circle-ci-test )
+ DEBUG [51e34f94] 	ed09d3944340af813dd584c2ce06cd399a234da8	refs/heads/deploy
+59fa06571dcb05689a62d1943cb92493fb723919	refs/heads/master
+  INFO [51e34f94] Finished in 2.504 seconds with exit status 0 (successful).
+  INFO [f2ea39e4] Running /usr/bin/env mkdir -p /go/airmeet/shared /go/airmeet/releases as deploy@133.130.96.129
+ DEBUG [f2ea39e4] Command: /usr/bin/env mkdir -p /go/airmeet/shared /go/airmeet/releases
+  INFO [f2ea39e4] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [d6362c59] Running [ -f /go/airmeet/current/REVISION ] as deploy@133.130.96.129
+ DEBUG [d6362c59] Command: [ -f /go/airmeet/current/REVISION ]
+ DEBUG [d6362c59] Finished in 0.040 seconds with exit status 0 (successful).
+ DEBUG [e2915253] Running /usr/bin/env cat /go/airmeet/current/REVISION 2>/dev/null as deploy@133.130.96.129
+ DEBUG [e2915253] Command: /usr/bin/env cat /go/airmeet/current/REVISION 2>/dev/null
+ DEBUG [e2915253] 	ed09d3944340af813dd584c2ce06cd399a234da8
+ DEBUG [e2915253] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [e21e81b3] Running [ -f /go/airmeet/repo/HEAD ] as deploy@133.130.96.129
+ DEBUG [e21e81b3] Command: [ -f /go/airmeet/repo/HEAD ]
+ DEBUG [e21e81b3] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /go/airmeet/repo
+ DEBUG [b2921f46] Running if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [b2921f46] Command: if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi
+ DEBUG [b2921f46] Finished in 0.040 seconds with exit status 0 (successful).
+  INFO [3b0fafec] Running /usr/bin/env git remote update --prune as deploy@133.130.96.129
+ DEBUG [3b0fafec] Command: cd /go/airmeet/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [3b0fafec] 	Fetching origin
+  INFO [3b0fafec] Finished in 2.451 seconds with exit status 0 (successful).
+ DEBUG [ab44658f] Running if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [ab44658f] Command: if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi
+ DEBUG [ab44658f] Finished in 0.040 seconds with exit status 0 (successful).
+  INFO [78ca6486] Running /usr/bin/env mkdir -p /go/airmeet/releases/20160511211732 as deploy@133.130.96.129
+ DEBUG [78ca6486] Command: cd /go/airmeet/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env mkdir -p /go/airmeet/releases/20160511211732 )
+  INFO [78ca6486] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [9098bb72] Running /usr/bin/env git archive deploy | tar -x -f - -C /go/airmeet/releases/20160511211732 as deploy@133.130.96.129
+ DEBUG [9098bb72] Command: cd /go/airmeet/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env git archive deploy | tar -x -f - -C /go/airmeet/releases/20160511211732 )
+  INFO [9098bb72] Finished in 0.124 seconds with exit status 0 (successful).
+ DEBUG [54cc88c6] Running if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [54cc88c6] Command: if test ! -d /go/airmeet/repo; then echo "Directory does not exist '/go/airmeet/repo'" 1>&2; false; fi
+ DEBUG [54cc88c6] Finished in 0.041 seconds with exit status 0 (successful).
+ DEBUG [bd12f1b3] Running /usr/bin/env git rev-list --max-count=1 deploy as deploy@133.130.96.129
+ DEBUG [bd12f1b3] Command: cd /go/airmeet/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/airmeet/git-ssh.sh" ; /usr/bin/env git rev-list --max-count=1 deploy )
+ DEBUG [bd12f1b3] 	ed09d3944340af813dd584c2ce06cd399a234da8
+ DEBUG [bd12f1b3] Finished in 0.045 seconds with exit status 0 (successful).
+ DEBUG [ffc202e5] Running if test ! -d /go/airmeet/releases/20160511211732; then echo "Directory does not exist '/go/airmeet/releases/20160511211732'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [ffc202e5] Command: if test ! -d /go/airmeet/releases/20160511211732; then echo "Directory does not exist '/go/airmeet/releases/20160511211732'" 1>&2; false; fi
+ DEBUG [ffc202e5] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO [8c5cfc90] Running /usr/bin/env echo "ed09d3944340af813dd584c2ce06cd399a234da8" >> REVISION as deploy@133.130.96.129
+ DEBUG [8c5cfc90] Command: cd /go/airmeet/releases/20160511211732 && /usr/bin/env echo "ed09d3944340af813dd584c2ce06cd399a234da8" >> REVISION
+  INFO [8c5cfc90] Finished in 0.044 seconds with exit status 0 (successful).
+  INFO [666b486c] Running /usr/bin/env ln -s /go/airmeet/releases/20160511211732 /go/airmeet/releases/current as deploy@133.130.96.129
+ DEBUG [666b486c] Command: /usr/bin/env ln -s /go/airmeet/releases/20160511211732 /go/airmeet/releases/current
+  INFO [666b486c] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [3b625664] Running /usr/bin/env mv /go/airmeet/releases/current /go/airmeet as deploy@133.130.96.129
+ DEBUG [3b625664] Command: /usr/bin/env mv /go/airmeet/releases/current /go/airmeet
+  INFO [3b625664] Finished in 0.042 seconds with exit status 0 (successful).
+ DEBUG [9ac77006] Running /usr/bin/env ls -xtr /go/airmeet/releases as deploy@133.130.96.129
+ DEBUG [9ac77006] Command: /usr/bin/env ls -xtr /go/airmeet/releases
+ DEBUG [9ac77006] 	20160511211447	20160511211635	20160511211732
+ DEBUG [9ac77006] Finished in 0.044 seconds with exit status 0 (successful).
+ DEBUG [8956c3b2] Running if test ! -d /go/airmeet/releases; then echo "Directory does not exist '/go/airmeet/releases'" 1>&2; false; fi as deploy@133.130.96.129
+ DEBUG [8956c3b2] Command: if test ! -d /go/airmeet/releases; then echo "Directory does not exist '/go/airmeet/releases'" 1>&2; false; fi
+ DEBUG [8956c3b2] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [49f46900] Running /usr/bin/env echo "Branch deploy (at ed09d3944340af813dd584c2ce06cd399a234da8) deployed as release 20160511211732 by kimura" >> /go/airmeet/revisions.log as deploy@133.130.96.129
+ DEBUG [49f46900] Command: cd /go/airmeet/releases && /usr/bin/env echo "Branch deploy (at ed09d3944340af813dd584c2ce06cd399a234da8) deployed as release 20160511211732 by kimura" >> /go/airmeet/revisions.log
+  INFO [49f46900] Finished in 0.041 seconds with exit status 0 (successful).
+ DEBUG [d2d57d2a] Running [ -d airmeet ] as deploy@133.130.96.129
+ DEBUG [d2d57d2a] Command: [ -d airmeet ]
+ DEBUG [d2d57d2a] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO [5ec568f3] Running cd airmeet; git pull: sudo ./setup.sh as deploy@133.130.96.129
+ DEBUG [5ec568f3] Command: cd airmeet; git pull: sudo ./setup.sh
+ DEBUG [5ec568f3] 	git: 'pull:' is not a git command. See 'git --help'.
+
+Did you mean this?
+	pull
