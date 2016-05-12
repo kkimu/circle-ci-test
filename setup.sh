@@ -33,7 +33,7 @@ docker run \
 
 docker build -t airmeet:0.1 airmeet
 docker run \
-	--name airmeet
+	--name airmeet \
 	--link mysql \
 	--volumes-from myapp-gopath \
 	-v airmeet:/go/src/app \
