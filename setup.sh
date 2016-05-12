@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-echo "-------- setup.sh start -----------"
+echo "------------ start setup.sh --------------"
 psq=`docker ps -q`
 if [ -n "${psq}" ]; then # 変数fooのサイズが0であれば真
 	docker stop ${psq}
@@ -54,4 +54,4 @@ docker run \
 
 
 
-echo "-------- setup.sh end -----------"
+echo "------------ end setup.sh --------------"

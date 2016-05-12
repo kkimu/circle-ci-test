@@ -8,7 +8,6 @@ set :deploy_to, "/go"
 set :branch, "deploy"
 set :pty, true
 
-
 desc "deploy tech.qwtt.jp"
 task :deploy do
   on roles(:web) do
