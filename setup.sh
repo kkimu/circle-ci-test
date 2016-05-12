@@ -3,7 +3,7 @@ set -ex
 
 echo "-------- setup.sh start -----------"
 psq=`docker ps -q`
-if [ -z ${psq} ]; then # 変数fooのサイズが0であれば真
+if [ -n ${psq} ]; then # 変数fooのサイズが0であれば真
 	docker stop ${psq}
 fi
 
