@@ -2,7 +2,11 @@
 set -ex
 
 echo "-------- setup.sh start -----------"
-docker stop `docker ps -q`
+psq=`docker ps -q`
+if [ -z ${psq} ]; then # 変数fooのサイズが0であれば真
+	docker stop ${psq}
+fi
+
 docker rm mysql nginx airmeet
 docker run --name data-mysql -v /var/lib/mysql busybox
 docker run --name myapp-gopath -itd -v /go busybox
