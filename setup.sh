@@ -3,8 +3,8 @@ set -ex
 
 echo "-------- setup.sh start -----------"
 psq=`docker ps -q`
-if [ -n ${psq} ]; then # 変数fooのサイズが0であれば真
-	docker kill ${psq}
+if [ -n "${psq}" ]; then # 変数fooのサイズが0であれば真
+	docker stop ${psq}
 fi
 
 docker rm mysql nginx airmeet
