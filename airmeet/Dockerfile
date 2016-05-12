@@ -13,3 +13,5 @@ WORKDIR /go/src/app
 
 
 EXPOSE 3000
+
+CMD ["go","run","main.go","api.go","db.go","structs.go","errors.go"]

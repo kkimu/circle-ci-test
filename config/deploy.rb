@@ -4,7 +4,7 @@ lock '3.5.0'
 set :application, 'airmeet'
 set :scm, :git
 set :repo_url, 'git@github.com:kkimu/circle-ci-test'
-set :deploy_to, "/go/airmeet/"
+set :deploy_to, "/go"
 set :branch, "deploy"
 set :pty, true
 
@@ -13,11 +13,16 @@ desc "deploy tech.qwtt.jp"
 task :deploy do
   on roles(:web) do
 		application = fetch :application
-		if test "[ -d #{application} ]"
-	    execute "cd #{application}; git pull: sudo ./setup.sh"
-	  else
-	    execute "git clone #{fetch :repo_url} #{application}; sudo ./setup.sh"
-	  end
+    deploy_to = fetch :deploy_to
+		branch = fetch :branch
+
+    execute "sudo chown deploy:deploy #{deploy_to}"
+
+    if test "[ -d #{deploy_to}/#{application} ]"
+      execute "cd #{deploy_to}/#{application}; git pull; sudo sh ./setup.sh"
+    else
+      execute "cd #{deploy_to}; git clone -b #{branch} #{fetch :repo_url} #{application}; cd #{application}; sudo sh setup.sh"
+    end
 	end
 end
 # Default branch is :master
