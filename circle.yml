@@ -3,6 +3,8 @@ machine:
     Asia/Tokyo
   services:
     - docker
+  ruby:
+    version: 2.1.3
 checkout:
   post:
     - git submodule sync
