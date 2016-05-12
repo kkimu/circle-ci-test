@@ -1,7 +1,7 @@
 FROM golang:1.6.2
 
 RUN mkdir -p /go/src/app
-#COPY . /go/src/app
+COPY . /go/src/app
 WORKDIR /go/src/app
 
 #RUN go get github.com/labstack/echo/...

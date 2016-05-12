@@ -42,7 +42,6 @@ docker run \
 	-e VIRTUAL_HOST=${LOCAL_VIRTUAL_HOST} \
 	-e DB_PASS=${DB_PASS} \
 	-d \
-	-t \
 	-p 3000:3000 \
 	airmeet:0.1
 
