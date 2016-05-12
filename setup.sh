@@ -3,8 +3,8 @@
 echo "-------- setup.sh start -----------"
 docker stop `docker ps -q`
 docker rm mysql nginx airmeet
-docker run -v /var/lib/mysql --name data-mysql busybox
-docker run -v /go --name myapp-gopath  busybox
+docker run --name data-mysql -v /var/lib/mysql busybox
+docker run --name myapp-gopath -itd -v /go busybox
 
 docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/labstack/echo/...
 docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/satori/go.uuid
