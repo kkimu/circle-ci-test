@@ -16,7 +16,7 @@ checkout:
 #    - docker run -d --privileged -p 40122:22 docker/centos-sshd; sleep 2
 dependencies:
   override:
-    echo "-----dependencies-----"
+    - echo "-----dependencies-----"
 test:
   pre:
     - echo "-----start test-----"
