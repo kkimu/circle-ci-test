@@ -36,9 +36,8 @@ docker run \
 	-v $PWD/mysql/init:/docker-entrypoint-initdb.d \
 	-e MYSQL_ROOT_PASSWORD=$DB_PASS \
 	-e MYSQL_DATABASE=airmeet \
+	-it \
 	-d \
-	-t \
-	-i \
 	-p 3306:3306 \
 	mysql mysqld
 
@@ -48,6 +47,7 @@ docker run \
 	--link mysql \
 	-e VIRTUAL_HOST=$LOCAL_VIRTUAL_HOST \
 	-e DB_PASS=$DB_PASS \
+	-it \
 	-d \
 	-p 3000:3000 \
 	airmeet:0.1
