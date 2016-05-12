@@ -25,4 +25,4 @@ deployment:
   production: #これはただのラベルで何でもよい
     branch: deploy #ここでブランチを指定。
     commands:
-      - deployment-to-production.sh #new file
+      - bundle exec cap staging deploy #new file
