@@ -8,7 +8,7 @@ if [ -n "${psq}" ]; then # 変数fooのサイズが0であれば真
 	docker rm ${psq}
 fi
 
-psaq=`docker ps -q`
+psaq=`docker ps -aq`
 if [ -z "${psaq}" ]; then # 変数fooのサイズが0であれば真
 	docker run --name data-mysql -v /var/lib/mysql busybox
 fi
