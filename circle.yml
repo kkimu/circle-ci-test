@@ -15,10 +15,8 @@ checkout:
 #    - ./script/docker-build.sh
 #    - docker run -d --privileged -p 40122:22 docker/centos-sshd; sleep 2
 dependencies:
-  pre:
-    - bundle install
-#  override:
-#    - echo "-----dependencies-----"
+  override:
+    - echo "-----dependencies-----"
 test:
   pre:
     - echo "-----start test-----"
@@ -30,4 +28,5 @@ deployment:
   production: #これはただのラベルで何でもよい
     branch: deploy #ここでブランチを指定。
     commands:
+      - bundle install
       - bundle exec cap staging deploy #new file
