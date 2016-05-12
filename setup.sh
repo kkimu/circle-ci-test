@@ -38,7 +38,6 @@ docker run \
 	--name airmeet \
 	--link mysql \
 	--volumes-from myapp-gopath \
-	-v /go/airmeet/airmeet:/go/src/app \
 	-e VIRTUAL_HOST=$LOCAL_VIRTUAL_HOST \
 	-e DB_PASS=$DB_PASS \
 	-d \
