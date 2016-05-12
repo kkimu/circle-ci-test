@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 echo "-------- setup.sh start -----------"
 docker stop `docker ps -q`
