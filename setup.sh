@@ -31,7 +31,7 @@ docker run \
 	-t \
 	-i \
 	-p 3306:3306 \
-	mysql /bin/bash
+	mysql mysqld
 
 docker build -t airmeet:0.1 airmeet
 docker run \
