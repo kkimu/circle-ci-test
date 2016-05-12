@@ -23,9 +23,9 @@ docker run \
 docker run \
 	--name mysql \
 	--volumes-from data-mysql \
-	-v ${PWD}/mysql/conf:/etc/mysql/conf.d \
-	-v ${PWD}/mysql/init:/docker-entrypoint-initdb.d \
-	-e MYSQL_ROOT_PASSWORD=${DB_PASS} \
+	-v $PWD/mysql/conf:/etc/mysql/conf.d \
+	-v $PWD/mysql/init:/docker-entrypoint-initdb.d \
+	-e MYSQL_ROOT_PASSWORD=$DB_PASS \
 	-e MYSQL_DATABASE=airmeet \
 	-d \
 	-t \
@@ -39,8 +39,8 @@ docker run \
 	--link mysql \
 	--volumes-from myapp-gopath \
 	-v airmeet:/go/src/app \
-	-e VIRTUAL_HOST=${LOCAL_VIRTUAL_HOST} \
-	-e DB_PASS=${DB_PASS} \
+	-e VIRTUAL_HOST=$LOCAL_VIRTUAL_HOST \
+	-e DB_PASS=$DB_PASS \
 	-d \
 	-p 3000:3000 \
 	airmeet:0.1
