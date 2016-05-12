@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "-------- setup.sh start -----------"
-
+docker stop `docker ps -q`
+docker rm `rm mysql nginx airmeet`
 docker run -v /var/lib/mysql --name data-mysql busybox
 docker run -v /go --name myapp-gopath  busybox
 
