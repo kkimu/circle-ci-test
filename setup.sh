@@ -29,8 +29,9 @@ docker run \
 	-e MYSQL_DATABASE=airmeet \
 	-d \
 	-t \
+	-i \
 	-p 3306:3306 \
-	mysql
+	mysql /bin/bash
 
 docker build -t airmeet:0.1 airmeet
 docker run \
