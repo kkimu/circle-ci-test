@@ -39,7 +39,7 @@ docker run \
 	--link mysql \
 	--volumes-from myapp-gopath \
 	-v airmeet:/go/src/app \
-	-e VIRTUAL_HOST=${LOCAL_VIRTUAL_HOST} \
+	-e MYSQL_PORT_3306_TCP_ADDR=${LOCAL_VIRTUAL_HOST} \
 	-e DB_PASS=${DB_PASS} \
 	-d \
 	-p 3000:3000 \
