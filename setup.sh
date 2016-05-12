@@ -6,11 +6,11 @@ docker rm mysql nginx airmeet
 docker run --name data-mysql -v /var/lib/mysql busybox
 docker run --name myapp-gopath -itd -v /go busybox
 
-docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/labstack/echo/...
-docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/satori/go.uuid
-docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get gopkg.in/go-playground/validator.v8
-docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/go-sql-driver/mysql
-docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/jinzhu/gorm
+#docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/labstack/echo/...
+#docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/satori/go.uuid
+#docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get gopkg.in/go-playground/validator.v8
+#docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/go-sql-driver/mysql
+#docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/jinzhu/gorm
 
 docker run \
 	--name nginx \
