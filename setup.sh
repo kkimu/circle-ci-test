@@ -5,11 +5,15 @@ echo "-------- setup.sh start -----------"
 psq=`docker ps -q`
 if [ -n "${psq}" ]; then # 変数fooのサイズが0であれば真
 	docker stop ${psq}
+	docker rm ${psq}
 fi
 
-docker rm mysql nginx airmeet
-docker run --name data-mysql -v /var/lib/mysql busybox
-docker run --name myapp-gopath -itd -v /go busybox
+psaq=`docker ps -q`
+if [ -z "${psaq}" ]; then # 変数fooのサイズが0であれば真
+	docker run --name data-mysql -v /var/lib/mysql busybox
+fi
+
+#docker run --name myapp-gopath -itd -v /go busybox
 
 #docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/labstack/echo/...
 #docker run --rm --volumes-from myapp-gopath -v $PWD:/go/src/app golang:1.6.2 go get github.com/satori/go.uuid
